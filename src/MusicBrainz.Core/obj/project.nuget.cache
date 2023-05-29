@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gFuLseXUwEAGnh282htSGLaTC7vweiatqer0K1kFojoyHF8F+67Vc7SlbECmNHzoeDBIJ5NxbzxTnYVvMuA3ZQ==",
+  "success": true,
+  "projectFilePath": "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sd664772\\.nuget\\packages\\oneof\\3.0.243\\oneof.3.0.243.nupkg.sha512",
+    "C:\\Users\\sd664772\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}
