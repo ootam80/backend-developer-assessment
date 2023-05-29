@@ -1,4 +1,6 @@
-﻿namespace MusicBrainz.Api.Models
+﻿using System.Collections.Generic;
+
+namespace MusicBrainz.Api.Models
 {
     public record Artist
     {

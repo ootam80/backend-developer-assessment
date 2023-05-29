@@ -1,0 +1,10 @@
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\bin\Debug\netstandard2.1\MusicBrainz.Core.deps.json
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\bin\Debug\netstandard2.1\MusicBrainz.Core.dll
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\bin\Debug\netstandard2.1\MusicBrainz.Core.pdb
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.csproj.AssemblyReference.cache
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.AssemblyInfoInputs.cache
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.AssemblyInfo.cs
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.csproj.CoreCompileInputs.cache
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.dll
+C:\Users\adrien.rose\source\repos\backend-developer-assessment\src\MusicBrainz.Core\obj\Debug\netstandard2.1\MusicBrainz.Core.pdb
