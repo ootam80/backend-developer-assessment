@@ -1,18 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
 	<LangVersion>latest</LangVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Handlers\NewFile1.txt" />
+    <None Remove="Models\NewFile1.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="OneOf" Version="3.0.243" />
     <PackageReference Include="Serilog" Version="2.12.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
   </ItemGroup>
 
 </Project>

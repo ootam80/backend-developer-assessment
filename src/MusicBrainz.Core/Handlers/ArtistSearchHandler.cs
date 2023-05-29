@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using MusicBrainz.Api.Models;
 using MusicBrainz.Core.Models;
 using OneOf;
 using OneOf.Types;
@@ -19,13 +18,13 @@ namespace MusicBrainz.Core.Handlers
             _logger = logger.ForContext<ArtistSearchHandler>() ?? throw new ArgumentException(nameof(logger));
         }
 
-        public async Task<OneOf<List<Artist>, NotFound, Error<string>>> HandleAsync(ArtistSearchRequest request, CancellationToken cancellationToken)
+        public async Task<OneOf<ArtistSearchResponse, NotFound, Error<string>>> HandleAsync(ArtistSearchRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = new List<Artist>();
+                var data = new ArtistSearchResponse();
 
-                if (data?.Any() != true)
+                if (data == null)
                 {
                     return new NotFound();
                 }

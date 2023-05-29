@@ -1,6 +1,13 @@
-﻿namespace MusicBrainz.Core.Models
+﻿using System.Collections.Generic;
+
+namespace MusicBrainz.Api.Models
 {
-    public class Artist
+    public record Artist
     {
+        public string Name { get; set; }
+
+        public string Country { get; set; }
+
+        public List<string> Alias { get; set; } = new List<string>();
     }
 }

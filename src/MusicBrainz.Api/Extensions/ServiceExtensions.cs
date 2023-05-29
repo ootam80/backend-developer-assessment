@@ -1,4 +1,6 @@
-﻿using MusicBrainz.Core.Handlers;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicBrainz.Core.Handlers;
+using MusicBrainz.Core.Persistence;
 using Serilog;
 using Serilog.Exceptions;
 
@@ -34,6 +36,11 @@ namespace MusicBrainz.Api.Extensions
             }
 
             builder.Services.AddTransient<IArtistSearchHandler, ArtistSearchHandler>();
+            builder.Services.AddTransient<IAlbumSearchHandler, AlbumSearchHandler>();
+
+            var dbConnectionString = builder.Configuration.GetConnectionString("MusicBrainzConnectionString");
+
+            builder.Services.AddDbContextPool<MusicBrainzDbContext>(op => op.UseSqlServer(connectionString: dbConnectionString));
 
             return builder;
         }

@@ -1,37 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj": {}
+    "C:\\Users\\adrien.rose\\source\\repos\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj": {}
   },
   "projects": {
-    "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj": {
+    "C:\\Users\\adrien.rose\\source\\repos\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj",
+        "projectUniqueName": "C:\\Users\\adrien.rose\\source\\repos\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj",
         "projectName": "MusicBrainz.Core",
-        "projectPath": "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj",
-        "packagesPath": "C:\\Users\\sd664772\\.nuget\\packages\\",
-        "outputPath": "C:\\MusicBrainzApi\\backend-developer-assessment\\src\\MusicBrainz.Core\\obj\\",
+        "projectPath": "C:\\Users\\adrien.rose\\source\\repos\\backend-developer-assessment\\src\\MusicBrainz.Core\\MusicBrainz.Core.csproj",
+        "packagesPath": "C:\\Users\\adrien.rose\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adrien.rose\\source\\repos\\backend-developer-assessment\\src\\MusicBrainz.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\sd664772\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adrien.rose\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://proget/nuget/SDWorxNuget": {},
+          "C:\\nugets": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -42,9 +42,13 @@
         }
       },
       "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "OneOf": {
               "target": "Package",
               "version": "[3.0.243, )"
@@ -52,6 +56,10 @@
             "Serilog": {
               "target": "Package",
               "version": "[2.12.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.2, )"
             }
           },
           "imports": [
@@ -65,11 +73,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "NETStandard.Library": {
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.116\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
