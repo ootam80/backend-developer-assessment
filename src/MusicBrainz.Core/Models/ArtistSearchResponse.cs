@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using MusicBrainz.Api.Models;
 
-namespace MusicBrainz.Api.Models
+namespace MusicBrainz.Core.Models
 {
     public record ArtistSearchResponse
     {

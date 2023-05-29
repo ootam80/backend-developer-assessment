@@ -38,6 +38,9 @@ namespace MusicBrainz.Api.Extensions
             builder.Services.AddTransient<IArtistSearchHandler, ArtistSearchHandler>();
             builder.Services.AddTransient<IAlbumSearchHandler, AlbumSearchHandler>();
 
+            builder.Services.AddScoped<IArtistsRepository, ArtistRepository>();
+            builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
+
             var dbConnectionString = builder.Configuration.GetConnectionString("MusicBrainzConnectionString");
 
             builder.Services.AddDbContextPool<MusicBrainzDbContext>(op => op.UseSqlServer(connectionString: dbConnectionString));

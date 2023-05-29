@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace MusicBrainz.Core.Persistence.Entities
 {
-    public class Artist
+    public class FeaturingArtist
     {
         [Key]
+        public string ReleaseId { get; set; }
         public string ArtistId { get; set; }
-        public string ArtistName { get; set; }
-        public string Country { get; set; }
     }
 }

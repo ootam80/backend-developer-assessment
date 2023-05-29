@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Handlers\NewFile1.txt" />
-    <None Remove="Models\NewFile1.txt" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Compile Remove="Persistence\Entities\Albums.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Handlers\NewFile1.txt" />
+    <None Remove="Models\NewFile1.txt" />
+    <None Remove="Persistence\Entities\NewFile2.txt" />
   </ItemGroup>
 
   <ItemGroup>

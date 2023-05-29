@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MusicBrainz.Api.Models;
+using MusicBrainz.Core.Persistence.Entities;
 
 namespace MusicBrainz.Core.Persistence
 {
@@ -9,6 +9,10 @@ namespace MusicBrainz.Core.Persistence
         {
         }
 
-        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Artist> Artist { get; set; }
+
+        public DbSet<Album> Albums { get; set; }
+
+        public DbSet<FeaturingArtist> FeaturingArtist { get; set; }
     }
 }

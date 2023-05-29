@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace MusicBrainz.Api.Models
+namespace MusicBrainz.Core.Models
 {
-    public record Album
+    public class Album
     {
         public string ReleaseId { get; set; }
 
@@ -10,7 +10,7 @@ namespace MusicBrainz.Api.Models
 
         public string Status { get; set; }
 
-        public string Lable { get; set; }
+        public string Label { get; set; }
 
         public int NumberOfTracks { get; set; }
 
@@ -18,7 +18,7 @@ namespace MusicBrainz.Api.Models
 
     }
 
-    public record OtherArtist
+    public class OtherArtist
     {
         public string Id { get; set; }
 

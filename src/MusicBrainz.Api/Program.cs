@@ -1,3 +1,4 @@
+using MusicBrainz.Api;
 using MusicBrainz.Api.Extensions;
 using MusicBrainz.Api.Middlewares;
 using MusicBrainz.Core.Handlers;
@@ -13,6 +14,10 @@ builder.BuildConfiguration();
 builder
     .AddSerilogLogger()
     .AddServices();
+
+builder.WebHost
+    .UseKestrel()
+    .UseIISIntegration();
 
 var app = builder.Build();
 
@@ -45,7 +50,7 @@ async Task<IResult> FetchAlbums(string artistId, IAlbumSearchHandler albumSearch
     return result.Match(
         ok => Results.Json(data: ok, statusCode: 200),
         notFound => Results.Json(notFound, statusCode: 404),
-        error => Results.Json(error, statusCode: 500));
+        error => Results.Json(new ApiError{ ErrorMessage = error.Value }, statusCode: 500));
 }
 
 
