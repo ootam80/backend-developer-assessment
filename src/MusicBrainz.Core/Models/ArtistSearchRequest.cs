@@ -2,6 +2,7 @@
 {
     public record ArtistSearchRequest
     {
+
         public string SearchCriteria { get; set; }
 
         public int PageNumber { get; set; }

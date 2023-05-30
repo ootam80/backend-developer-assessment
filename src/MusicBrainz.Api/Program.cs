@@ -31,7 +31,7 @@ app.MapGet("/artist/{artistId}/albums", FetchAlbums);
 
 async Task<IResult> FetchArtists(string searchCriteria, int pageNumber, int pageSize, IArtistSearchHandler artistSearchHandler, CancellationToken cancellationToken)
 {
-    var request = new ArtistSearchRequest { SearchCriteria = searchCriteria, PageNumber = pageNumber, PageSize = pageSize };
+    var request = new ArtistSearchRequest {SearchCriteria = searchCriteria, PageNumber = pageNumber, PageSize = pageSize };
 
     var result = await artistSearchHandler.HandleAsync(request, cancellationToken);
 

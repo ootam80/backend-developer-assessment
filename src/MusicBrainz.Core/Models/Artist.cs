@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MusicBrainz.Api.Models
+namespace MusicBrainz.Core.Models
 {
     public record Artist
     {

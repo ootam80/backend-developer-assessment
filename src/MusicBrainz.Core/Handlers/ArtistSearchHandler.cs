@@ -3,33 +3,30 @@ using System.Threading;
 using System.Threading.Tasks;
 using MusicBrainz.Api.Models;
 using MusicBrainz.Core.Models;
+using MusicBrainz.Core.Persistence;
 using OneOf;
 using OneOf.Types;
 using Serilog;
 
 namespace MusicBrainz.Core.Handlers
 {
-    public class ArtistSearchHandler : IArtistSearchHandler
+    public sealed class ArtistSearchHandler : IArtistSearchHandler
     {
         private readonly ILogger _logger;
 
-        public ArtistSearchHandler(ILogger logger)
+        private readonly IArtistsRepository _artistsRepository;
+
+        public ArtistSearchHandler(ILogger logger, IArtistsRepository artistsRepository)
         {
             _logger = logger.ForContext<ArtistSearchHandler>() ?? throw new ArgumentException(nameof(logger));
+            _artistsRepository = artistsRepository ?? throw new ArgumentException(nameof(artistsRepository));
         }
 
         public async Task<OneOf<ArtistSearchResponse, NotFound, Error<string>>> HandleAsync(ArtistSearchRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                var data = new ArtistSearchResponse();
-
-                if (data == null)
-                {
-                    return new NotFound();
-                }
-
-                return data;
+                return await _artistsRepository.GetArtistAsync(request, cancellationToken);
 
             }
             catch (Exception e)

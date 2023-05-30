@@ -14,5 +14,7 @@ namespace MusicBrainz.Core.Persistence
         public DbSet<Album> Albums { get; set; }
 
         public DbSet<FeaturingArtist> FeaturingArtist { get; set; }
+
+        public DbSet<Aliases> Aliases { get; set; }
     }
 }
