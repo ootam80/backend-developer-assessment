@@ -70,5 +70,3 @@ finally
     Log.CloseAndFlush();
     await Task.Delay(1000);
 }
-
-// http://localhost:5035/artist/search/test/1/200

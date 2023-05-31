@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using MusicBrainz.Api.Models;
 using MusicBrainz.Core.Models;
 using OneOf;
@@ -44,20 +45,28 @@ namespace MusicBrainz.Core.Persistence
                               join art in _dbContext.Artist
                               on ali.ArtistId equals art.ArtistId
                               where art.ArtistName.StartsWith(request.SearchCriteria)
-                              select new Models.Artist
+                              select new Models.Artist()
                               {
                                    Name = art.ArtistName, 
                                    Country = art.Country,
-                                   Alias = ali.Alias.Split(',').ToList()
-                              }).ToListAsync(cancellationToken);
+                                   Alias = ali.Alias.Split(',', StringSplitOptions.None ).ToList()
+                              }).Skip((request.PageNumber - 1) * request.PageSize).Take(request.PageSize).ToListAsync(cancellationToken);
 
                 if (artists == null)
                 {
                     return new NotFound();
                 }
 
+                var noOfPages = (int) Math.Ceiling((double)artists.Count / request.PageSize);
 
-                return new ArtistSearchResponse();
+                return new ArtistSearchResponse
+                {
+                    Page = request.PageNumber.ToString(),
+                    PageSize = request.PageSize.ToString(),
+                    NumberOfPages = noOfPages.ToString(),
+                    Result = artists,
+                    NumberOfSearchResults = artists.Count
+                };
 
             }
             catch (Exception e)
