@@ -11,6 +11,7 @@ using OneOf.Types;
 using Serilog;
 using Album = MusicBrainz.Core.Persistence.Entities.Album;
 using Artist = MusicBrainz.Core.Persistence.Entities.Artist;
+using FeaturingArtist = MusicBrainz.Core.Persistence.Entities.FeaturingArtist;
 
 namespace MusicBrainz.Core.Persistence
 {
@@ -19,6 +20,8 @@ namespace MusicBrainz.Core.Persistence
         private readonly MusicBrainzDbContext _dbContext;
         private readonly ILogger _logger;
 
+        List<Artist> _artists;  
+        List<FeaturingArtist> _featuringArtists;
 
         public AlbumRepository(MusicBrainzDbContext dbContext, ILogger logger)
         {
@@ -28,6 +31,7 @@ namespace MusicBrainz.Core.Persistence
 
         public async Task<OneOf<AlbumSearchResponse, NotFound, Error<string>>> GetAlbumsAsync(AlbumSearchRequest request, CancellationToken cancellationToken)
         {
+
             try
             {
                 var albums = await _dbContext.Albums
@@ -39,20 +43,26 @@ namespace MusicBrainz.Core.Persistence
                     return new NotFound();
                 }
 
-                var featuringArtists = await _dbContext.FeaturingArtist.Where(x => albums
+                _featuringArtists = await _dbContext.FeaturingArtist.Where(x => albums
                     .Select(y => y.ReleaseId.ToLower())
                     .Contains(x.ReleaseId.ToLower())).ToListAsync(cancellationToken);
 
-                if (featuringArtists == null || !featuringArtists.Any())
+
+                if (_featuringArtists.Count == 0)
                 {
-                    return new NotFound();
+                    _artists = await _dbContext.Artist
+                        .Where(x => string.Equals(x.ArtistId.ToLower(),request.ArtistId.ToLower()))
+                        .ToListAsync(cancellationToken);
+                }
+                else
+                {
+                    _artists = await _dbContext.Artist
+                    .Where(x => _featuringArtists.Select(y => y.ArtistId.ToLower()).Contains(x.ArtistId))
+                    .ToListAsync(cancellationToken);
                 }
 
-                var artists = await _dbContext.Artist
-                    .Where(x => featuringArtists.Select(y => y.ArtistId.ToLower()).Contains(x.ArtistId))
-                    .ToListAsync(cancellationToken);
 
-                return ConsolidateResult(albums, artists);
+                return ConsolidateResult(albums, _artists, _featuringArtists);
             }
             catch (Exception e)
             {
@@ -64,7 +74,7 @@ namespace MusicBrainz.Core.Persistence
             }
         }
 
-        private static AlbumSearchResponse ConsolidateResult(List<Album> albums, List<Artist> artists)
+        private static AlbumSearchResponse ConsolidateResult(List<Album> albums, List<Artist> artists, List<FeaturingArtist> featArtist)
         {
             var response = new AlbumSearchResponse
             {
@@ -80,7 +90,7 @@ namespace MusicBrainz.Core.Persistence
                     ReleaseId = album.ReleaseId,
                     Status = album.Status,
                     Title = album.Title,
-                    OtherArtist = artists.Select(x => new OtherArtist{ Id = x.ArtistId, Name = x.ArtistName}).ToList()
+                    OtherArtist = featArtist.Count == 0 ? artists.Select(x => new OtherArtist { Id = "", Name = "" }).ToList() : artists.Select(x => new OtherArtist { Id = x.ArtistId, Name = x.ArtistName }).ToList()
                 });
             }
 
