@@ -42,7 +42,7 @@ There three main folders each having different responsiblity,
 **Sample url**
 http://localhost:5035/artist/{ArtistId}/albums : The port may differ depending on port binding the api is been tested
 
-** Log is available on console and seq **
+**Log is available on console and seq**
 A seq docker has been provided be to able to have better logging.Execute the following command after installing docker:  
   *docker .\docker-compose.logging.yml up*
 
