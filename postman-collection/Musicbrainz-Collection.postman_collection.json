@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "a82c704a-291c-414a-8141-b0e0ea0152cf",
+		"name": "Musicbrainz-Collection-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Positive Test",
+			"item": [
+				{
+					"name": "Get Albums-01",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/435f1441-0f43-479d-92db-a506449a686b/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"435f1441-0f43-479d-92db-a506449a686b",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Album-02",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/c44e9c22-ef82-4a77-9bcd-af6c958446d6/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"c44e9c22-ef82-4a77-9bcd-af6c958446d6",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Album-03",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/650e7db6-b795-4eb5-a702-5ea2fc46c848/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"650e7db6-b795-4eb5-a702-5ea2fc46c848",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Albums with no ft artist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/931e1d1f-6b2f-4ff8-9f70-aa537210cd46/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"931e1d1f-6b2f-4ff8-9f70-aa537210cd46",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search artist-1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/search/joh/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"search",
+								"joh",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search artist-2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/search/m/1/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"search",
+								"m",
+								"1",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Negative test",
+			"item": [
+				{
+					"name": "artist is not exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/123441-0f43-479d-92db-a506449a686b/albums",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"123441-0f43-479d-92db-a506449a686b",
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wrong url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/435f1441-0f43-479d-92db-a506449a686b/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"435f1441-0f43-479d-92db-a506449a686b",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "no artist match",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5035/artist/search/joh/5/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5035",
+							"path": [
+								"artist",
+								"search",
+								"joh",
+								"5",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pagination limitation",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

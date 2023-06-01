@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using MusicBrainz.Api.Models;
 using MusicBrainz.Core.Models;
 using OneOf;
 using OneOf.Types;
 using Serilog;
-using Artist = MusicBrainz.Core.Persistence.Entities.Artist;
+using SerilogTimings.Extensions;
 
 namespace MusicBrainz.Core.Persistence
 {
@@ -29,18 +25,9 @@ namespace MusicBrainz.Core.Persistence
 
         public async Task<OneOf<ArtistSearchResponse, NotFound, Error<string>>> GetArtistAsync(ArtistSearchRequest request, CancellationToken cancellationToken)
         {
-
+            using var op = _logger.BeginOperation("Fetching artists from database");
             try
             {
-                //var artist = await _dbContext.Aliases
-                //.Where(x => string.Equals(x.ArtistId.ToLower(), request.SearchCriteria.ToLower()))
-                //.ToListAsync(cancellationToken);
-
-                //if (artist == null || !artist.Any())
-                //{
-                //    return new NotFound();
-                //}
-
                 var artists = await (from ali in _dbContext.Aliases
                               join art in _dbContext.Artist
                               on ali.ArtistId equals art.ArtistId
@@ -54,11 +41,13 @@ namespace MusicBrainz.Core.Persistence
 
                 if (artists == null)
                 {
+                    op.Abandon();
                     return new NotFound();
                 }
 
                 var noOfPages = (int) Math.Ceiling((double)artists.Count / request.PageSize);
 
+                op.Complete();
                 return new ArtistSearchResponse
                 {
                     Page = request.PageNumber.ToString(),
@@ -71,10 +60,11 @@ namespace MusicBrainz.Core.Persistence
             }
             catch (Exception e)
             {
-
                 _logger
                     .ForContext("Query", request)
                     .Error(e, "An error occurred while fetching artist information");
+
+                op.Cancel();
 
                 return new Error<string>(e.Message);
             }

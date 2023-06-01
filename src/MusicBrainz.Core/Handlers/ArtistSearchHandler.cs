@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MusicBrainz.Api.Models;
 using MusicBrainz.Core.Models;
 using MusicBrainz.Core.Persistence;
 using OneOf;

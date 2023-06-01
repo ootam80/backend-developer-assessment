@@ -9,19 +9,19 @@ using MusicBrainz.Core.Models;
 using OneOf;
 using OneOf.Types;
 using Serilog;
+using SerilogTimings.Extensions;
 using Album = MusicBrainz.Core.Persistence.Entities.Album;
 using Artist = MusicBrainz.Core.Persistence.Entities.Artist;
 using FeaturingArtist = MusicBrainz.Core.Persistence.Entities.FeaturingArtist;
 
 namespace MusicBrainz.Core.Persistence
 {
-    public class AlbumRepository : IAlbumRepository
+    public sealed class AlbumRepository : IAlbumRepository
     {
         private readonly MusicBrainzDbContext _dbContext;
         private readonly ILogger _logger;
 
-        List<Artist> _artists;  
-        List<FeaturingArtist> _featuringArtists;
+
 
         public AlbumRepository(MusicBrainzDbContext dbContext, ILogger logger)
         {
@@ -31,7 +31,7 @@ namespace MusicBrainz.Core.Persistence
 
         public async Task<OneOf<AlbumSearchResponse, NotFound, Error<string>>> GetAlbumsAsync(AlbumSearchRequest request, CancellationToken cancellationToken)
         {
-
+            using var op = _logger.BeginOperation("Fetching albums from database");
             try
             {
                 var albums = await _dbContext.Albums
@@ -40,29 +40,31 @@ namespace MusicBrainz.Core.Persistence
 
                 if (albums == null || !albums.Any())
                 {
+                    op.Abandon();
                     return new NotFound();
                 }
 
-                _featuringArtists = await _dbContext.FeaturingArtist.Where(x => albums
+                var featuringArtists = await _dbContext.FeaturingArtist.Where(x => albums
                     .Select(y => y.ReleaseId.ToLower())
                     .Contains(x.ReleaseId.ToLower())).ToListAsync(cancellationToken);
 
 
-                if (_featuringArtists.Count == 0)
+                List <Artist> artists;
+                if (featuringArtists.Count == 0)
                 {
-                    _artists = await _dbContext.Artist
+                    artists = await _dbContext.Artist
                         .Where(x => string.Equals(x.ArtistId.ToLower(),request.ArtistId.ToLower()))
                         .ToListAsync(cancellationToken);
                 }
                 else
                 {
-                    _artists = await _dbContext.Artist
-                    .Where(x => _featuringArtists.Select(y => y.ArtistId.ToLower()).Contains(x.ArtistId))
-                    .ToListAsync(cancellationToken);
+                    artists = await _dbContext.Artist
+                        .Where(x => featuringArtists.Select(y => y.ArtistId.ToLower()).Contains(x.ArtistId))
+                        .ToListAsync(cancellationToken);
                 }
 
-
-                return ConsolidateResult(albums, _artists, _featuringArtists);
+                op.Complete();
+                return ConsolidateResult(albums, artists, featuringArtists);
             }
             catch (Exception e)
             {
@@ -70,6 +72,7 @@ namespace MusicBrainz.Core.Persistence
                     .ForContext("Query", request)
                     .Error(e, "An error occurred while fetching albums");
 
+                op.Cancel();
                 return new Error<string>(e.Message);
             }
         }

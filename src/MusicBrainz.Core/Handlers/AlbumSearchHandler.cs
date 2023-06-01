@@ -10,7 +10,7 @@ using Serilog;
 
 namespace MusicBrainz.Core.Handlers
 {
-     public class AlbumSearchHandler : IAlbumSearchHandler
+     public sealed class AlbumSearchHandler : IAlbumSearchHandler
     {
         private readonly ILogger _logger;
         private readonly IAlbumRepository _albumRepository;
