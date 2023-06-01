@@ -11,10 +11,10 @@ The Api is a .net core application build upon .net 6.0 framework and is based on
 
 The two layer that made up the application are as follows: 
 
-* **Layer 1:**  The API 
+* **Layer 1:**  The API `<br>`
 This thin layer create instances in lower layer and delegate functionality. There no business or domain logic involves , there are configuration and routes mapping.
 
-* **Layer 2:**  The core
+* **Layer 2:**  The core `<br>`
 The second layer contains the main logic of the API and carried functionality of controllers passed down from the upper layer [MusicBrainzApi].
 There three main folders each having different responsiblity, 
 
