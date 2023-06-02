@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6ca48616-920a-41fd-a4bf-a9b959ba500e": {
+      "ProjectGuid": "6ca48616-920a-41fd-a4bf-a9b959ba500e",
+      "DisplayName": "MusicBrainz.Api",
+      "ColorIndex": 0
+    },
+    "61e0d376-5db4-4882-8f31-607e409f6c01": {
+      "ProjectGuid": "61e0d376-5db4-4882-8f31-607e409f6c01",
+      "DisplayName": "MusicBrainz.Core",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "c2d24c00-debb-41de-92fc-66534f16a513": {
+      "ProjectGuid": "c2d24c00-debb-41de-92fc-66534f16a513",
+      "DisplayName": "MusicBrainz.Core.Tests",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

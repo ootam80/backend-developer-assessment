@@ -6,7 +6,7 @@ The Api Expose two endpoints as per below :
 * ```/artist/search/<search_criteria>/<page_number>/<page_size>``` - Provide inforation about artist and their releases
 * ```/artist/6c44e9c22-ef82-4a77-9bcd-af6c958446d6/albums``` - Provide information about albums of a specific artist
 
-### Architecture and Solution Structure
+### Architecture and Solution Structure  
 The Api is a .net core application build upon .net 6.0 framework and is based on Minimal API architecture. The solution try to implement a mix of CQRS pattern and some principle of MVC style.
 
 The two layer that made up the application are as follows: 
@@ -37,9 +37,10 @@ There three main folders each having different responsiblity,
 
 **Note** Execute sql script in order they are numbered in the script folder and change connection string accordingly [or used conection string if available]
 
-**Sample url**
+**Sample url**  
 http://localhost:5035/artist/{ArtistId}/albums : The port binding may differs depending on the machine the API is being tested.
 
 ** Log is available on console and seq **  
 A seq docker has been provided be to able to have better logging.Execute the following command after install docker to spin up seq
 *docker .\docker-compose.logging.yml up*
+
