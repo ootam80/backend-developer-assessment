@@ -7,7 +7,7 @@ The Api Expose two endpoints as per below :
 * ```/artist/6c44e9c22-ef82-4a77-9bcd-af6c958446d6/albums``` - Provide information about albums of a specific artist
 
 ### Architecture and Solution Structure
-The Api is a .net core application build upon .net 6.0 framework and is based on Minimal API architecture.
+The Api is a .net core application build upon .net 6.0 framework and is based on Minimal API architecture. The solution try to implement a mix of CQRS pattern and some principle of MVC style.
 
 The two layer that made up the application are as follows: 
 
@@ -22,7 +22,7 @@ There three main folders each having different responsiblity,
 * Models - define the properties and data representation for processing
 * Persistence - IT holds data repositories which is the data source for the application
 
-* A relational normalise data approach has been used for data structure rather than storing json blob into tables. The logic is to have an easier maintenance and not to have duplication of data.
+* A relational normalise data approach has been used for data structure rather than storing json blob into tables. The logic behind is to prevent bad data from artist information and to have a more simplify way of data     representation.
 
 
 ## How to run the Apllication:
