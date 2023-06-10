@@ -1,0 +1,12 @@
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\DataLayer.dll.config
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\lg\source\repos\MusicArtist\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lg\source\repos\MusicArtist\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+C:\Users\lg\source\repos\MusicArtist\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\lg\source\repos\MusicArtist\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+C:\Users\lg\source\repos\MusicArtist\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\lg\source\repos\MusicArtist\DataLayer\obj\Debug\DataLayer.pdb
