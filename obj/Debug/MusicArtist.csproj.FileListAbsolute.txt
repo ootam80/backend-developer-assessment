@@ -60,3 +60,12 @@ C:\Projects\backend-developer-assessment\obj\Debug\MusicArtist.csproj.CoreCompil
 C:\Projects\backend-developer-assessment\obj\Debug\MusicArtist.csproj.CopyComplete
 C:\Projects\backend-developer-assessment\obj\Debug\WebApplication1.dll
 C:\Projects\backend-developer-assessment\obj\Debug\WebApplication1.pdb
+C:\Projects\backend-developer-assessment\bin\BusinessLayer.dll
+C:\Projects\backend-developer-assessment\bin\DataLayer.dll
+C:\Projects\backend-developer-assessment\bin\EntityFramework.dll
+C:\Projects\backend-developer-assessment\bin\BusinessLayer.pdb
+C:\Projects\backend-developer-assessment\bin\DataLayer.pdb
+C:\Projects\backend-developer-assessment\bin\DataLayer.dll.config
+C:\Projects\backend-developer-assessment\bin\EntityFramework.xml
+C:\Projects\backend-developer-assessment\bin\EntityFramework.SqlServer.dll
+C:\Projects\backend-developer-assessment\bin\EntityFramework.SqlServer.xml

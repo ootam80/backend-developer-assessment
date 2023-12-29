@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebApplication1
+namespace MusicArtist
 {
     public class RouteConfig
     {
@@ -17,6 +17,13 @@ namespace WebApplication1
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            //artist/search/<search_criteria>/<page_number>/<page_size>
+            routes.MapRoute(
+                name: "search",
+                url: "artist/search/{searchcriteria}/{pagenumber}/{pagesize}",
+                defaults: new { area = "artist", controller = "artist", action = "search", searchcriteria = UrlParameter.Optional, pagenumber = UrlParameter.Optional, pagesize = UrlParameter.Optional }
             );
         }
     }
