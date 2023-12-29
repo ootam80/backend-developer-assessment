@@ -43,3 +43,10 @@ C:\Projects\backend-developer-assessment\Tests\obj\Debug\Tests.csproj.CoreCompil
 C:\Projects\backend-developer-assessment\Tests\obj\Debug\Tests.csproj.CopyComplete
 C:\Projects\backend-developer-assessment\Tests\obj\Debug\Tests.dll
 C:\Projects\backend-developer-assessment\Tests\obj\Debug\Tests.pdb
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\Tests.dll.config
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\Castle.Core.dll
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\NSubstitute.dll
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\System.Web.Helpers.dll
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Projects\backend-developer-assessment\Tests\bin\Debug\System.Web.Helpers.xml
