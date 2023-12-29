@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MusicBrainzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alias">
+    <Key>
+      <PropertyRef Name="AliasId" />
+    </Key>
+    <Property Name="AliasId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtistId" Type="bigint" Nullable="false" />
+    <Property Name="AliasDescription" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtistName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Country" Type="varchar(max)" Nullable="false" />
+    <Property Name="UniqueIdentifier" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Alias__ArtistId__267ABA7A">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+    <End Role="Alias" Type="Self.Alias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="Alias">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MusicBrainzModelStoreContainer">
+    <EntitySet Name="Alias" EntityType="Self.Alias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Alias__ArtistId__267ABA7A" Association="Self.FK__Alias__ArtistId__267ABA7A">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Alias" EntitySet="Alias" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
