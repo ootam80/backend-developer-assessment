@@ -1,0 +1,12 @@
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\DataLayer.dll
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\DataLayer.pdb
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\DataLayer.dll.config
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Projects\backend-developer-assessment\BusinessLayer\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
